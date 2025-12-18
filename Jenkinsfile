@@ -21,7 +21,7 @@ pipeline{
 
         stage("Test") {
             steps {
-                sh "./gradlew test"
+                sh "./gradlew -D https.proxyHost=proxy1-rech.uphf.fr -D https.proxyPort=3128 test"
             }
         }
         stage('SonarQube Analysis') {
