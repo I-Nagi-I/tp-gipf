@@ -3,6 +3,7 @@ pipeline{
 
     environment {
         SONARQUBE_SERVER = "TPControle"
+        NO_PROXY="172.17.0.1"
     }
 
     stages{
