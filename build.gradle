@@ -28,6 +28,14 @@ test {
     useJUnitPlatform()
 }
 
+jacocoTestReport {
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+}
+
 // In this section you declare the dependencies for your production and test code
 dependencies {
     implementation 'org.postgresql:postgresql:42.7.3'
