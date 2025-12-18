@@ -20,8 +20,10 @@ pipeline{
             }
         }
         stage('SonarQube Analysis') {
-            withSonarQubeEnv() {
-                sh "./gradlew sonar -Dsonar.projectKey=TPControle -Dsonar.projectName='TPControle' -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_36d3626173346f154b67e71475556ca938909ef5"
+            steps {
+                withSonarQubeEnv() {
+                    sh "./gradlew sonar -Dsonar.projectKey=TPControle -Dsonar.projectName='TPControle' -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_36d3626173346f154b67e71475556ca938909ef5"
+                }
             }
         }
     }
