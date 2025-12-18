@@ -1,10 +1,6 @@
 pipeline{
     agent any
 
-    environment {
-        NO_PROXY="172.17.0.1"
-    }
-
     stages{
         stage('Checkout') {
             steps {
@@ -21,6 +17,12 @@ pipeline{
         stage("Test") {
             steps {
                 sh "./gradlew -D https.proxyHost=proxy1-rech.uphf.fr -D https.proxyPort=3128 test"
+            }
+        }
+
+        stage("Jacoco") {
+            steps {
+                sh "./gradlew -D https.proxyHost=proxy1-rech.uphf.fr -D https.proxyPort=3128 
             }
         }
         stage('SonarQube Analysis') {
