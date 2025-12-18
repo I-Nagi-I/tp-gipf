@@ -1,6 +1,10 @@
 pipeline{
     agent any
 
+    environment {
+        SONARQUBE_SERVER = "TPControle"
+    }
+
     stages{
         stage('Checkout') {
             steps {
@@ -21,7 +25,7 @@ pipeline{
         }
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv() {
+                withSonarQubeEnv("${SONARQUBE_SERVER}) {
                     sh "./gradlew sonar -Dsonar.projectKey=TPControle -Dsonar.projectName='TPControle' -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_36d3626173346f154b67e71475556ca938909ef5"
                 }
             }
