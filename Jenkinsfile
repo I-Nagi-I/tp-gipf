@@ -34,7 +34,8 @@ pipeline{
 
         stage("Jar + Archive") {
             steps {
-                
+                sh 'make' 
+                archiveArtifacts artifacts: '*.jar', fingerprint: true
             }
         }
     }
