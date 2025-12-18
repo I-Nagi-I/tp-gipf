@@ -34,8 +34,8 @@ pipeline{
 
         stage("Jar + Archive") {
             steps {
-                sh '' 
-                archiveArtifacts artifacts: '*.jar', fingerprint: true
+                sh "./gradlew -D https.proxyHost=proxy1-rech.uphf.fr -D https.proxyPort=3128 jar"
+                archiveArtifacts artifacts: 'build/libs/*.jar'
             }
         }
     }
