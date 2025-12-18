@@ -22,7 +22,7 @@ pipeline{
 
         stage("Jacoco") {
             steps {
-                sh "./gradlew -D https.proxyHost=proxy1-rech.uphf.fr -D https.proxyPort=3128 
+                sh "./gradlew -D https.proxyHost=proxy1-rech.uphf.fr -D https.proxyPort=3128 jacocoTestReport"
             }
         }
         stage('SonarQube Analysis') {
