@@ -46,10 +46,3 @@ jar {
 plugins {
   id "org.sonarqube" version "7.2.0.6526"
 }
-
-sonar {
-  properties {
-    property "sonar.projectKey", "TPControle"
-    property "sonar.projectName", "TPControle"
-  }
-}
